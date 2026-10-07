@@ -1,0 +1,26 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Kmiura'
+theme = 'kmiura-hugo-theme'
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 20
+
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 30
+
+[params]
+  mainSections = ["posts"]
+  github = 'https://github.com/FKmiura'
+  linkedin = ''
+  steam = ''
