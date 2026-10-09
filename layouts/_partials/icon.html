@@ -1,0 +1,3 @@
+{{ $name := . }} {{ with resources.Get (printf "icons/%s.svg" $name) }}
+<div>{{ .Content | safeHTML }}</div>
+{{ else }} {{ warnf "icon %q not found in assets/icons" $name }} {{ end }}

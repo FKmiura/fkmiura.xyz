@@ -1,0 +1,28 @@
+{{ define "main" }} {{ .Content }} {{ $posts := where site.RegularPages
+"Section" "in" site.Params.mainSections }} {{ $paginator := .Paginate $posts 5
+}} {{ range $paginator.Pages }} {{ $post := . }}
+
+<a href="{{ .RelPermalink }}" class="post-card">
+  {{ with .Params.banner }} {{ with $post.Resources.Get . }}
+  <img src="{{ .RelPermalink }}" alt="{{ $post.Title }}" />
+  {{ end }} {{ end }}
+
+  <div class="post-card-info">
+    <div class="post-card-meta">
+      <div>
+        {{ partial "icon.html" "calendar" }} {{ .Date | time.Format ":date_long"
+        }}
+      </div>
+      <div>{{ partial "icon.html" "alphabet" }} {{ .WordCount }} words</div>
+      <div>{{ partial "icon.html" "hourglass" }} {{ .Params.time }} mins</div>
+    </div>
+
+    <h2>{{ .LinkTitle }}</h2>
+    {{ if .Params.summary }}
+    <p>{{ .Params.summary | strings.Truncate 300 }}</p>
+    {{ else }}
+    <p>{{ .Content | strings.Truncate 300 }}</p>
+    {{ end }}
+  </div>
+</a>
+{{ end }} {{ partial "pagination.html" . }} {{ end }}

@@ -1,0 +1,22 @@
+{{ if .Params.pginfo | default true }}
+<section class="page-info section-base">
+  <div class="page-info-content">
+    <p>Created: {{ .Date | time.Format ":date_long" }}</p>
+    <p>Edited: {{ .Lastmod | time.Format ":date_long" }}</p>
+    <p>Title: {{ .Title }}</p>
+    <p>Description: {{ .Description }}</p>
+  </div>
+
+  <div class="term-list">
+    {{- range .Params.tags }}
+    <a class="term-item" href="{{ . }}"
+      ><div>{{ partial "icon.html" "tag" }} {{ . }}</div></a
+    >
+    {{- end }} {{- range .Params.categories }}
+    <a class="term-item" href="{{ . }}"
+      ><div>{{ partial "icon.html" "bookmark" }} {{ . }}</div></a
+    >
+    {{- end }}
+  </div>
+</section>
+{{ end }}

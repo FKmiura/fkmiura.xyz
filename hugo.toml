@@ -1,7 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://fkmiura.xyz/'
 locale = 'en-us'
 title = 'Kmiura'
-theme = 'kmiura-hugo-theme'
 
 [menus]
   [[menus.main]]

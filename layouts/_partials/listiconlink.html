@@ -1,0 +1,35 @@
+<div class="list-icon-link">
+  <ul>
+    {{ if site.Params.github }}
+    <li>
+      <a
+        href="{{ site.Params.github }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ partial "icon.html" "github" }}</a
+      >
+    </li>
+    {{ end }} {{ if site.Params.linkedin }}
+    <li>
+      <a
+        href="{{ site.Params.linkedin }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ partial "icon.html" "linkedin" }}</a
+      >
+    </li>
+    {{ end }} {{ if site.Params.steam }}
+    <li>
+      <a
+        href="{{ site.Params.steam }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ partial "icon.html" "steam" }}</a
+      >
+    </li>
+    {{ end }}
+  </ul>
+</div>

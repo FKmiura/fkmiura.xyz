@@ -1,0 +1,12 @@
+{{- $page := .page }} {{- $taxonomy := .taxonomy }}
+
+<section class="section-base term-section">
+  {{- with $page.GetTerms $taxonomy }} {{- $label := (index .
+  0).Parent.LinkTitle }}
+  <div class="term-list">
+    {{- range . }}
+    <a class="term-item" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+</section>

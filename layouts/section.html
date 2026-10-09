@@ -1,0 +1,21 @@
+{{ define "main" }} {{ .Content }}
+
+<section class="section-base">
+ {{ range .RegularPages.GroupByDate "2006" }}
+    <section>
+      <h2>{{ .Key }}</h2>
+      <ul class="post-list">
+        {{ range .Pages }}
+          <li>
+            <time datetime="{{ .Date | time.Format "2006-01-02" }}">
+              {{ .Date | time.Format "01/02" }}
+            </time>
+            <span>-</span>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+</section>
+{{ end }}

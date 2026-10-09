@@ -1,0 +1,16 @@
+{{ define "main" }} {{ .Content }}
+
+<section class="recommendation-section">
+  {{ $paginator := .Paginate .Pages 9 }} {{ range $paginator.Pages }} {{ $post
+  := . }}
+  <a class="recommendation-item section-base" href="{{ .RelPermalink }}">
+    {{ with .Params.cover }} {{ with $post.Resources.Get . }}
+    <img src="{{ .RelPermalink }}" alt="{{ $post.Title }}" />
+    {{ end }} {{ end }}
+    <h2>{{ .LinkTitle }}</h2>
+    <p>{{ range .Params.author }}{{ . }}{{ end }}</p>
+  </a>
+  {{ end }}
+</section>
+
+{{ partial "pagination.html" . }} {{ end }}

@@ -1,0 +1,18 @@
+{{ define "main" }} {{ .Content }}
+
+<section class="project-section">
+  {{ $paginator := .Paginate .Pages 9 }} {{ range $paginator.Pages }} {{ $post
+  := . }}
+  <a class="project-item section-base" href="{{ .RelPermalink }}">
+    {{ with .Params.image }} {{ with $post.Resources.Get . }}
+    <img src="{{ .RelPermalink }}" alt="{{ $post.Title }}" />
+    {{ end }} {{ end }}
+    <div>
+      <h2>{{ .LinkTitle }}</h2>
+      <p>{{ .Params.description }}</p>
+    </div>
+  </a>
+  {{ end }}
+</section>
+
+{{ partial "pagination.html" . }} {{ end }}

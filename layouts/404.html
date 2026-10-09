@@ -1,0 +1,28 @@
+<!doctype html>
+<html
+  lang="{{ site.Language.Locale }}"
+  dir="{{ or site.Language.Direction `ltr` }}"
+>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body>
+    <header>{{ partial "header.html" . }}</header>
+
+    <section class="banner-section">
+      {{ $banner := "" }} {{ with .Params.image }} {{ with $.Resources.Get .
+      }}{{ $banner = . }}{{ end }} {{ end }} {{ if not $banner }} {{ with
+      resources.Get "images/banner.jpg" }}{{ $banner = . }}{{ end }} {{ end }}
+      {{ with $banner }}
+      <div class="banner-wrapper">
+        <img class="banner" src="{{ .RelPermalink }}" alt="" />
+      </div>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+      <p>Sorry, but the page you are looking for does not exist. (╥ ᴗ ╥)</p>
+    </section>
+
+    <footer>{{ partial "footer.html" . }}</footer>
+  </body>
+</html>

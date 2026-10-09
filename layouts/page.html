@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<section class="section-base">
+  {{ if not .Date.IsZero }}
+  <div class="post-card-meta">
+    <div>
+      {{ partial "icon.html" "calendar" }} {{ .Date | time.Format ":date_long"
+      }}
+    </div>
+    <div>{{ partial "icon.html" "alphabet" }} {{ .WordCount }} words</div>
+    <div>{{ partial "icon.html" "hourglass" }} {{ .Params.time }} mins</div>
+  </div>
+  {{ end }}
+
+  <div class="post-content">
+    <article>{{ .Content }}</article>
+  </div>
+</section>
+
+{{ partial "pageinfo.html" . }} {{ end }}

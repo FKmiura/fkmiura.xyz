@@ -1,0 +1,6 @@
+{{ if .Params.toc | default false }}
+<aside class="toc">
+  <strong>Context</strong>
+  {{ .TableOfContents }}
+</aside>
+{{ end }}

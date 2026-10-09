@@ -1,0 +1,28 @@
+<aside class="side-info">
+  <div class="side-info-profile">
+    {{ with resources.Get "images/profile.jpg"}}
+    <img src="{{ .RelPermalink }}" alt="Profile Image" />
+    {{ end }}
+    <p>Kmiura</p>
+  </div>
+
+  {{ $posts := where site.RegularPages "Section" "in" site.Params.mainSections
+  }}
+
+  <div class="side-info-status">
+    <div class="side-info-status-item" title="Tags">
+      <p>{{ partial "icon.html" "tag" }}</p>
+      <p>{{ len site.Taxonomies.tags }}</p>
+    </div>
+    <div class="side-info-status-item" title="Categories">
+      <p>{{ partial "icon.html" "bookmark" }}</p>
+      <p>{{ len site.Taxonomies.categories }}</p>
+    </div>
+    <div class="side-info-status-item" title="Posts">
+      <p>{{ partial "icon.html" "pen" }}</p>
+      <p>{{ len $posts }}</p>
+    </div>
+  </div>
+
+  {{ partial "listiconlink.html" }}
+</aside>
